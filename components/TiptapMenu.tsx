@@ -5,10 +5,7 @@ import {
     Underline,
     Link,
     Heading1,
-    Heading2,
-    AlignCenter,
-    AlignLeft,
-    AlignRight, List,
+    Heading2, List, ListOrdered,
 } from 'lucide-react';
 
 import {useCallback} from 'react';
@@ -31,7 +28,7 @@ const TiptapMenu = ({editor}: { editor: Editor | null }) => {
     if (!editor) return null;
 
     return (
-        <div className='flex justify-between items-center h-14 w-full gap-1 px-3 shadow rounded-b-lg'>
+        <div className='flex justify-between items-center h-14 w-full gap-1 px-3 shadow rounded-t-lg'>
             <div className='flex justify-start items-center gap-4'>
                 <button
                     type="button"
@@ -43,6 +40,16 @@ const TiptapMenu = ({editor}: { editor: Editor | null }) => {
                     }
                     className={cn("p-1",editor.isActive('bulletList')  && "text-white font-bold bg-gray-600 rounded")}>
                     <List className='h-5 w-5'/>
+                </button>
+                <button type="button"
+                        onClick={() =>
+                            editor.chain().focus().toggleOrderedList().run()
+                        }
+                        disabled={
+                            !editor.can().chain().focus().toggleOrderedList().run()
+                        }
+                        className={cn("p-1",editor.isActive('orderList')  && "text-white font-bold bg-gray-600 rounded")}>
+                    <ListOrdered />
                 </button>
                 <button
                     type="button"
@@ -96,45 +103,6 @@ const TiptapMenu = ({editor}: { editor: Editor | null }) => {
                     className={cn("p-1",editor.isActive('link')  && "text-white font-bold bg-gray-600 rounded")}
                 >
                     <Link className='h-5 w-5'/>
-                </button>
-                <button
-                    type="button"
-                    onClick={() =>
-                        editor
-                            .chain()
-                            .focus()
-                            .setTextAlign('left')
-                            .run()
-                    }
-                    className={cn("p-1",editor.isActive({textAlign: "left"})  && "text-white font-bold bg-gray-600 rounded")}
-                >
-                    <AlignLeft className='h-5 w-5'/>
-                </button>
-                <button
-                    type="button"
-                    onClick={() =>
-                        editor
-                            .chain()
-                            .focus()
-                            .setTextAlign('center')
-                            .run()
-                    }
-                    className={cn("p-1",editor.isActive({textAlign: "center"})  && "text-white font-bold bg-gray-600 rounded")}
-                >
-                    <AlignCenter className='h-5 w-5'/>
-                </button>
-                <button
-                    type="button"
-                    onClick={() =>
-                        editor
-                            .chain()
-                            .focus()
-                            .setTextAlign('right')
-                            .run()
-                    }
-                    className={cn("p-1",editor.isActive({textAlign: "right"})  && "text-white font-bold bg-gray-600 rounded")}
-                >
-                    <AlignRight className='h-5 w-5'/>
                 </button>
             </div>
             <div className='flex-center gap-3'>

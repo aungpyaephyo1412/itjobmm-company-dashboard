@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 .ProseMirror {
-    @apply  max-w-screen-xl mx-auto min-h-[150px] w-full bg-default-100 p-3 rounded-t-lg
+    @apply  max-w-screen-xl mx-auto min-h-[200px] w-full bg-default-100 p-3 rounded-b-lg
 }
 
 .ProseMirror:focus-visible {

@@ -50,8 +50,8 @@ const Tiptap = ({onChange,initialContent}:{onChange : (b:string)=>void,initialCo
     });
     return (
         <div>
-            <EditorContent editor={editor} />
             <TiptapMenu editor={editor} />
+            <EditorContent editor={editor} />
         </div>
     );
 };
