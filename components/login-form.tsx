@@ -21,10 +21,10 @@ const LoginForm = () => {
             e.preventDefault()
             execute(company)
         }} className="w-full space-y-5 py-5">
-            <Input errorMessage={validationErrors?.identifier?.[0]} label="Email or username" name="identifier"
+            <Input isRequired errorMessage={validationErrors?.identifier?.[0]} label="Email or username" name="identifier"
                    onChange={handleInputChange}
                    isInvalid={!!serverError || !!validationErrors?.identifier}/>
-            <Input
+            <Input isRequired
                 name="password" onChange={handleInputChange}
                 errorMessage={validationErrors?.password?.[0]}
                 isInvalid={!!serverError || !!validationErrors?.password}

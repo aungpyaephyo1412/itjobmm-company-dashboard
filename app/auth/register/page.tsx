@@ -4,12 +4,16 @@ import Link from "next/link";
 
 const Page = () => {
     return (
-        <AuthPage heading={<h1>Register your company</h1>} footer={<h4>
-            Already register <Link className="text-blue-500 ml-2" href={"/auth/login"}>
-            Login
-        </Link>
-        </h4>}>
+        <AuthPage>
+            <h1 className="text-4xl font-semibold mb-5">Register your company</h1>
+
             <RegisterForm/>
+
+            <h4>
+                <Link className="hover:underline text-blue-500 ml-2" href={"/auth/login"}>
+                    Login your company dashboard
+                </Link>
+            </h4>
         </AuthPage>
     );
 };
