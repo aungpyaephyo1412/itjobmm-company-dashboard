@@ -30,6 +30,16 @@ const TiptapMenu = ({editor}: { editor: Editor | null }) => {
     return (
         <div className='flex justify-between items-center h-14 w-full gap-1 px-3 shadow rounded-t-lg'>
             <div className='flex justify-start items-center gap-4'>
+                <button type="button"
+                        onClick={() =>
+                            editor.chain().focus().toggleOrderedList().run()
+                        }
+                        disabled={
+                            !editor.can().chain().focus().toggleOrderedList().run()
+                        }
+                        className={cn("p-1 hover:bg-cyan-300/50 rounded", editor.isActive('orderedList') && "text-blue-500 font-bold bg-cyan-300/50 rounded")}>
+                    <ListOrdered className='h-4 w-4'/>
+                </button>
                 <button
                     type="button"
                     onClick={() =>
@@ -38,30 +48,20 @@ const TiptapMenu = ({editor}: { editor: Editor | null }) => {
                     disabled={
                         !editor.can().chain().focus().toggleBulletList().run()
                     }
-                    className={cn("p-1",editor.isActive('bulletList')  && "text-white font-bold bg-gray-600 rounded")}>
-                    <List className='h-5 w-5'/>
-                </button>
-                <button type="button"
-                        onClick={() =>
-                            editor.chain().focus().toggleOrderedList().run()
-                        }
-                        disabled={
-                            !editor.can().chain().focus().toggleOrderedList().run()
-                        }
-                        className={cn("p-1",editor.isActive('orderList')  && "text-white font-bold bg-gray-600 rounded")}>
-                    <ListOrdered />
+                    className={cn("p-1 hover:bg-cyan-300/50 rounded", editor.isActive('bulletList') && "text-blue-500 font-bold bg-cyan-300/50 rounded")}>
+                    <List className='h-4 w-4'/>
                 </button>
                 <button
                     type="button"
-                        onClick={() =>
-                            editor.chain().focus().toggleBold().run()
-                        }
-                        disabled={
-                            !editor.can().chain().focus().toggleBold().run()
-                        }
-                        className={cn("p-1",editor.isActive('bold')  && "text-white font-bold bg-gray-600 rounded")}
+                    onClick={() =>
+                        editor.chain().focus().toggleBold().run()
+                    }
+                    disabled={
+                        !editor.can().chain().focus().toggleBold().run()
+                    }
+                    className={cn("p-1 hover:bg-cyan-300/50 rounded", editor.isActive('bold') && "text-blue-500 font-bold bg-cyan-300/50 rounded")}
                 >
-                    <Bold className='h-5 w-5'/>
+                    <Bold className='h-4 w-4'/>
                 </button>
                 <button
                     type="button"
@@ -76,9 +76,9 @@ const TiptapMenu = ({editor}: { editor: Editor | null }) => {
                             .toggleItalic()
                             .run()
                     }
-                    className={cn("p-1",editor.isActive('italic')  && "text-white font-bold bg-gray-600 rounded")}
+                    className={cn("p-1 hover:bg-cyan-300/50 rounded", editor.isActive('italic') && "text-blue-500 font-bold bg-cyan-300/50 rounded")}
                 >
-                    <Italic className='h-5 w-5'/>
+                    <Italic className='h-4 w-4'/>
                 </button>
                 <button
                     type="button"
@@ -93,16 +93,16 @@ const TiptapMenu = ({editor}: { editor: Editor | null }) => {
                             .toggleUnderline()
                             .run()
                     }
-                    className={cn("p-1",editor.isActive('underline')  && "text-white font-bold bg-gray-600 rounded")}
+                    className={cn("p-1 hover:bg-cyan-300/50 rounded", editor.isActive('underline') && "text-blue-500 font-bold bg-cyan-300/50 rounded")}
                 >
-                    <Underline className='h-5 w-5'/>
+                    <Underline className='h-4 w-4'/>
                 </button>
                 <button
                     type="button"
                     onClick={setLink}
-                    className={cn("p-1",editor.isActive('link')  && "text-white font-bold bg-gray-600 rounded")}
+                    className={cn("p-1 hover:bg-cyan-300/50 rounded", editor.isActive('link') && "text-blue-500 font-bold bg-cyan-300/50 rounded")}
                 >
-                    <Link className='h-5 w-5'/>
+                    <Link className='h-4 w-4'/>
                 </button>
             </div>
             <div className='flex-center gap-3'>
@@ -111,18 +111,18 @@ const TiptapMenu = ({editor}: { editor: Editor | null }) => {
                     onClick={() =>
                         editor.chain().focus().toggleHeading({level: 3}).run()
                     }
-                    className={cn("p-1",editor.isActive('heading', {level: 3})  && "text-white font-bold bg-gray-600 rounded")}
+                    className={cn("p-1 hover:bg-cyan-300/50 rounded", editor.isActive('heading', {level: 3}) && "text-blue-500 font-bold bg-cyan-300/50 rounded")}
                 >
-                    <Heading1 className='h-6 w-6'/>
+                    <Heading1 className='h-4 w-4'/>
                 </button>
                 <button
                     type="button"
                     onClick={() =>
                         editor.chain().focus().toggleHeading({level: 4}).run()
                     }
-                    className={cn("p-1",editor.isActive('heading', {level: 4})  && "text-white font-bold bg-gray-600 rounded")}
+                    className={cn("p-1 hover:bg-cyan-300/50 rounded",editor.isActive('heading', {level: 4})  && "text-blue-500 font-bold bg-cyan-300/50 rounded")}
                 >
-                    <Heading2 className='h-6 w-6'/>
+                    <Heading2 className='h-4 w-4'/>
                 </button>
             </div>
         </div>

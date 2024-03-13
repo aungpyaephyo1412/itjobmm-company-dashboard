@@ -48,13 +48,13 @@ const JobsTable = ({jobs}: { jobs: companyJob[] }) => {
                                                 <EyeIcon size={20}/>
                                             </Link>
                                         </Tooltip>
-                                        <Tooltip content="Edit user" color="secondary">
+                                        <Tooltip content="Edit Job" color="secondary">
                                             <Link href={`/home/jobs/edit/${item._id}`}>
                                                 <EditIcon size={19}/>
                                             </Link>
                                         </Tooltip>
                                         <Tooltip
-                                            content="Delete user"
+                                            content="Delete Job"
                                             color="danger"
                                         >
                                             <button onClick={() => execute({id: item._id})}>
