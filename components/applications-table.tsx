@@ -10,6 +10,7 @@ const ApplicationsTable = ({applications}:{applications:Application[]}) => {
                 <TableHeader>
                     <TableColumn align="start">Name</TableColumn>
                     <TableColumn align="start">Email</TableColumn>
+                    <TableColumn align="start">Phone</TableColumn>
                     <TableColumn align="start">Role</TableColumn>
                     <TableColumn align="start">Address</TableColumn>
                 </TableHeader>
@@ -21,6 +22,9 @@ const ApplicationsTable = ({applications}:{applications:Application[]}) => {
                             </TableCell>
                             <TableCell align="left">
                                 {item.email}
+                            </TableCell>
+                            <TableCell align="left">
+                                {item.phone}
                             </TableCell>
                             <TableCell align="left">
                                 {item.role}
