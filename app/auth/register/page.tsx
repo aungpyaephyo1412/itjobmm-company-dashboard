@@ -5,7 +5,7 @@ import Link from "next/link";
 const Page = () => {
     return (
         <AuthPage>
-            <h1 className="text-4xl font-semibold mb-5">Register your company</h1>
+            <h1 className="text-4xl font-semibold mb-5 text-center">Register your company</h1>
 
             <RegisterForm/>
 
