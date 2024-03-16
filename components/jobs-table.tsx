@@ -37,7 +37,7 @@ const JobsTable = ({jobs}: { jobs: companyJob[] }) => {
                                 <Chip size="sm" color={item.status === "active" ? "success" : "danger"}>{item.status}</Chip>
                             </TableCell>
                             <TableCell align="center">
-                                <Link href={`/home/applications/job/${item._id}`} className="hover:underline">
+                                <Link href={`/home/applications/job/${item._id}`} className="hover:underline text-green-500 font-semibold text-lg">
                                     {item.applications.length}
                                 </Link>
                             </TableCell>

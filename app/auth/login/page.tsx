@@ -6,7 +6,7 @@ const Page = () => {
 
     return (
         <AuthPage>
-            <h1 className="text-4xl font-semibold mb-5">Login your company dashboard</h1>
+            <h1 className="text-4xl font-semibold mb-5 text-center">Login your company dashboard</h1>
 
             <LoginForm/>
 

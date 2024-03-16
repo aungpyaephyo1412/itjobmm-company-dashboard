@@ -9,7 +9,7 @@ const Page = async () => {
     return (
         <section className="py-5">
             <div className="max-w-screen-xl mx-auto flex justify-between items-center screen-padding mb-7">
-                <div className="flex items-center gap-5">
+                <div className="flex flex-wrap items-center gap-5">
                     <Avatar
                         isBordered
                         name={session?.user.name.substring(0, 3)}

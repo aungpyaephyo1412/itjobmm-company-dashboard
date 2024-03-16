@@ -10,7 +10,7 @@ import {
     Building,
     ChevronRight, ChevronLeft
 } from "lucide-react";
-import {Nav} from "@/components/nav";
+import Nav from "@/components/nav";
 import {useWindowSize} from "usehooks-ts";
 import {cn} from "@nextui-org/react";
 
@@ -26,9 +26,9 @@ export default function SideNavbar({}: Props) {
     }
 
     return (
-        <div className={cn("relative min-w-[80px] border-r px-3  pb-10 pt-24")}>
-            {!mobileWidth && (
-                <div className="absolute right-[-20px] top-7">
+        <div className={cn("relative max-w-fit lg:min-w-[80px] border-r lg:px-3  pb-10 pt-24")}>
+
+                <div className={cn("absolute right-[-20px] top-7","lg:block","hidden")}>
                     <button
                         className="p-2 bg-gray-300/20 backdrop-blur rounded-full"
                         onClick={toggleSidebar}
@@ -36,7 +36,6 @@ export default function SideNavbar({}: Props) {
                         {isCollapsed ? <ChevronRight /> : <ChevronLeft/>}
                     </button>
                 </div>
-            )}
             <Nav
                 isCollapsed={mobileWidth ? true : isCollapsed}
                 links={[
